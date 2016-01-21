@@ -1,0 +1,100 @@
+ANSWER 2:
+
+<html>
+<head>
+travelling Requirement
+</head>
+<body>
+<select>
+  <option value="manali">manali</option>
+  <option value="Shimla">Shimla</option>
+  <option value="peru">peru</option>
+  <option value="pune">Pune</option>
+</select>
+<select>
+  <option value="select">select</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+</select>
+<h2>Spectacular Mountain</h2>
+<img src="pic_mountain.jpg" alt="Mountain View" style="width:1080px;height:1920px;">
+</body>
+</html>
+
+
+ANSWER 1:
+
+#include<stdio.h>
+#include<stdlib.h>
+void printRepeating(int arr[], int size)
+{
+  int i, j;
+  printf(" Repeating elements are ");
+  for(i = 0; i < size; i++)
+    for(j = i+1; j < size; j++)
+      if(arr[i] == arr[j])
+        printf(" %d ", arr[i]);
+}     
+ 
+int main()
+{
+  int arr[] = {4, 2, 4, 5, 2, 3, 1};
+  int arr_size = sizeof(arr)/sizeof(arr[0]);  
+  printRepeating(arr, arr_size);
+  getchar();
+  return 0;
+}
+
+
+ANSWER 3:
+
+# include <stdio.h>
+# include <stdlib.h> /* for abs() */
+# include <math.h>
+void minAbsSumPair(int arr[], int arr_size)
+{
+  int inv_count = 0;
+  int l, r, min_sum, sum, min_l, min_r;
+ 
+  /* Array should have at least two elements*/
+  if(arr_size < 2)
+  {
+    printf("Invalid Input");
+    return;
+  }
+ 
+  /* Initialization of values */
+  min_l = 0;
+  min_r = 1;
+  min_sum = arr[0] + arr[1];
+ 
+  for(l = 0; l < arr_size - 1; l++)
+  {
+    for(r = l+1; r < arr_size; r++)
+    {
+      sum = arr[l] + arr[r];
+      if(abs(min_sum) > abs(sum))
+      {
+        min_sum = sum;
+        min_l = l;
+        min_r = r;
+      }
+    }
+  }
+ 
+  printf(" The two elements whose sum is minimum are %d and %d",
+          arr[min_l], arr[min_r]);
+}
+ 
+/* Driver program to test above function */
+int main()
+{
+  int arr[] = {1, 60, -10, 70, -80, 85};
+  minAbsSumPair(arr, 6);
+  getchar();
+  return 0;
+}
